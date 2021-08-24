@@ -11,7 +11,7 @@
 <form action=” ” method=”post”>
 
 	Name :
-	<input type=text name=txtname value="<? echo $row[name] ?>” readonly />
+	<input type=text name=txtname value="<? echo $row[name] ?>" readonly />
 	</br>
 	Phone number :
 	<input type=text name=txttelno value="<? echo $row[phone_number] ?>" />

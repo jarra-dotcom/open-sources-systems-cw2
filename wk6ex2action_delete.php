@@ -4,11 +4,10 @@
     define('HOST','localhost');
     define('USER','root');
     define('PASSWORD','nanzbakz1');
-    define('DB','assignmentphp');
-    
+    define('DB','db1_gwalke01');
     
     $con = mysqli_connect(HOST,USER,PASSWORD,DB) or die(mysqli_connect_error());
-   
+    $id=$_GET['id'];
     $sql = "SELECT * from test where name = '$_GET[id]' ";
     // Execute query
     $result = mysqli_query($con,$sql);
@@ -27,26 +26,20 @@
     Email :
     <input type=text name=txtemail value="<?php echo $row['email'] ?>" />
     </br>
-    <input type=submit name=btnsubmit value="save"/>
+    <input type=submit name=delete value="delete"/>
 </form>
 </body>
 <?php
-    if(isset($_POST['btnsubmit'])){
-        $name = $_POST['txtname'];
-        $email = $_POST['txtemail'];
-        $phone_number = $_POST['txttelno'];
-
-        $sql = "UPDATE `test` SET name='$name',email='$email',phone_number='$phone_number' where name='$_GET[id]' ";
+    if(isset($_POST['delete'])){
+       $sql="DELETE FROM `test` WHERE `test`.`name` = '$_GET[id]' ";
 
 // Execute query
 if ($con->query($sql) === TRUE) {
-    echo "Record updated successfully";
-    $row = mysqli_fetch_assoc($result);
-    
+    echo "Record deleted successfully";
   } else {
-    echo "Error updating record: " . $con->error;
+    echo "Error deleted record: " . $con->error;
   }
-
-    }
+  
+  $con->close();
+}
 ?>
-

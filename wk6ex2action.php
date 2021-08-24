@@ -20,7 +20,7 @@
 <html>
 <body>
 
-<form action="wk6ex2action_update.php" method="post">
+<form action="wk6ex2action_delete.php" method="post">
 
     Name :
     <input type=text name=txtname value="<?php echo $row['name'] ?>"  readonly/>
@@ -31,7 +31,7 @@
     Email :
     <input type=text name=txtemail value="<?php echo $row['email'] ?>" />
     </br>
-    <input type=submit name=btnsubmit value="save"/>
+    <input type=submit name=btnsubmit value="Delete"/>
 </form>
 
 </body>
